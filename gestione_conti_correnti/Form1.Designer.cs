@@ -76,7 +76,7 @@
             this.btn_n1.Name = "btn_n1";
             this.btn_n1.Size = new System.Drawing.Size(173, 51);
             this.btn_n1.TabIndex = 3;
-            this.btn_n1.Text = "visualizza\r\nNome e cognome+saldo";
+            this.btn_n1.Text = "visualizza\r\nNome e cognome+Saldo\r\ninserendo il Numero\r\n";
             this.btn_n1.UseVisualStyleBackColor = true;
             this.btn_n1.Click += new System.EventHandler(this.btn_n1_Click);
             // 
@@ -152,7 +152,7 @@
             this.btn_n2.Name = "btn_n2";
             this.btn_n2.Size = new System.Drawing.Size(173, 51);
             this.btn_n2.TabIndex = 13;
-            this.btn_n2.Text = "visualizza\r\nNumero+saldo";
+            this.btn_n2.Text = "visualizza\r\nNumero+Saldo\r\nInserendo il Nome\r\n";
             this.btn_n2.UseVisualStyleBackColor = true;
             this.btn_n2.Click += new System.EventHandler(this.btn_n2_Click);
             // 
@@ -184,6 +184,7 @@
             this.btn_n6.TabIndex = 16;
             this.btn_n6.Text = "visualizza \r\nelenco clienti";
             this.btn_n6.UseVisualStyleBackColor = true;
+            this.btn_n6.Click += new System.EventHandler(this.btn_n6_Click);
             // 
             // Form1
             // 

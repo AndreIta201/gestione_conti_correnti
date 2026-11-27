@@ -13,16 +13,47 @@ namespace gestione_conti_correnti
 {
     public partial class Form1 : Form
     {
-        string[] nome = new string[] { "Rossi Mario", "Bianchi Luigi", "Belli Giulia", "Dotti Fabio", "Merli Gianna", "Zeri Giulio", "Botti Maria" };
+        struct identita
+        {
+            public string nome;
+            public string cognome;
+        }
+
+        identita[] persone = new identita[7];
+            
+
         string[] numero = new string[] { "11264", "99780", "00342", "03419", "34562", "09887", "02341" };
         int[] saldo = new int[] { 11534, -2345, 3451, 127, 45673, -13, 3452 };
+
         public Form1()
         {
             InitializeComponent();
 
+            persone[0].cognome = "Rossi";
+            persone[0].nome = "Mario";
 
-            lbx_n1.Items.AddRange(nome);
+            persone[1].cognome = "Bianchi";
+            persone[1].nome = "Luigi";
 
+            persone[2].cognome = "Belli";
+            persone[2].nome = "Giulia";
+
+            persone[3].cognome = "Dotti";
+            persone[3].nome = "Fabio";
+
+            persone[4].cognome = "Merli";
+            persone[4].nome = "Gianna";
+
+            persone[5].cognome = "Zeri";
+            persone[5].nome = "Giulio";
+
+            persone[6].cognome = "Botti";
+            persone[6].nome = "Maria";
+
+            for (int i = 0; i < persone.Length; i++)
+            {
+                lbx_n1.Items.Add(persone[i].cognome + " " + persone[i].nome);
+            }
             foreach (string n in numero)
             {
                 lbx_n2.Items.Add(n);
@@ -43,7 +74,7 @@ namespace gestione_conti_correnti
                 if (numero[i] == n)
                 {
                    
-                    lbl_visualizza.Text = nome[i] + " + " + saldo[i];
+                    lbl_visualizza.Text = persone[i].cognome + " " + persone[i].nome + " + " + saldo[i];
                     trovato = true; 
                 }
             }
@@ -57,9 +88,9 @@ namespace gestione_conti_correnti
         {
             string n = txt_nome.Text;
             bool trovato = false;
-            for (int i = 0; i < nome.Length; i++)
+            for (int i = 0; i < persone.Length; i++)
             {
-                if (nome[i] == n)
+                if (persone[i].cognome + " " + persone[i].nome == n)
                 {
                     lbl_visualizza.Text = numero[i] + " + " + saldo[i];
                     trovato = true;
@@ -79,7 +110,7 @@ namespace gestione_conti_correnti
             {
                     if (saldo[i] < 0)
                 {
-                    lbl_visualizza.Text += "I più poveri sono: " + nome[i] + "\n";
+                    lbl_visualizza.Text += "I più poveri sono: " + persone[i].cognome + " " + persone[i].nome + "\n";
                     trovato = true;
                 }
 
@@ -96,13 +127,13 @@ namespace gestione_conti_correnti
                 if (i == 0)
                 {
                     max = saldo[i];
-                    lbl_visualizza.Text = "Il più ricco è: " + nome[i];
+                    lbl_visualizza.Text = "Il più ricco è: " + persone[i].cognome + " " + persone[i].nome;
                     trovato = true;
                 }
                 else if (saldo[i] > max)
                 {
                     max = saldo[i];
-                    lbl_visualizza.Text = "Il più ricco è: " + nome[i];
+                    lbl_visualizza.Text = "Il più ricco è: " + persone[i].cognome + " " + persone[i].nome;
                     trovato = true;
                 }
 
@@ -120,6 +151,11 @@ namespace gestione_conti_correnti
             }
             media = somma / saldo.Length;
             lbl_visualizza.Text = "La media dei saldi è: " + media;
+        }
+
+        private void btn_n6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
